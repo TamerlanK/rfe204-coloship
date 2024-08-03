@@ -41,7 +41,7 @@ const HeaderTop = () => {
   return (
     <div
       className={cn(
-        "bg-ntrl text-ntrl-clr400 transition-all",
+        "bg-ntrl text-ntrl-clr400 transition-all duration-200",
         isTop ? "hidden lg:block h-12" : "h-0 overflow-hidden"
       )}
     >
