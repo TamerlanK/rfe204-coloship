@@ -1,20 +1,22 @@
 import { useState } from "react"
-import Container from "../../Container"
 import {
-  FaUser,
+  FaBars,
   FaSearch,
   FaShoppingCart,
-  FaBars,
   FaTimes,
+  FaUser,
 } from "react-icons/fa"
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
+import { IoMdPersonAdd } from "react-icons/io"
+import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { cn } from "../../../lib/utils"
+import Container from "../../Container"
 
 const HeaderMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const [isCurrencyAccordionOpen, setisCurrencyAccordionOpen] = useState(false)
   const [isLangaugeAccordionOpen, setisLangaugeAccordionOpen] = useState(false)
+  const [isAccountAccordionOpen, setIsAccountAccordionOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -79,51 +81,98 @@ const HeaderMain = () => {
           <nav className="flex flex-col py-4 px-6 items-start">
             <ul className="w-full divide-y">
               <li>
-                <div className="transition-all">
-                  <button
-                    className="flex w-full justify-end items-center gap-x-1 focus:outline-none py-3 text-sm hover:text-primary transition-colors text-right"
-                    onClick={() => setisLangaugeAccordionOpen((prev) => !prev)}
-                  >
-                    English{" "}
-                    <MdOutlineKeyboardArrowDown
-                      className={cn(
-                        "transition-transform",
-                        isLangaugeAccordionOpen && "rotate-180"
-                      )}
-                    />
-                  </button>
-                  {isLangaugeAccordionOpen && (
-                    <ul className="w-full divide-y text-sm text-right transition-all">
-                      <li className="block w-full py-3 hover:text-primary transition-colors">
-                        French
-                      </li>
-                      <li className="block w-full py-3 hover:text-primary transition-colors">
-                        Italian
-                      </li>
-                      <li className="block w-full py-3 hover:text-primary transition-colors">
-                        German
-                      </li>
-                      <li className="block w-full py-3 hover:text-primary transition-colors">
-                        Spanish
-                      </li>
-                    </ul>
-                  )}
-                </div>
+                <button
+                  className="flex w-full justify-end items-center gap-x-1 focus:outline-none py-3 text-sm hover:text-primary text-right"
+                  onClick={() => setisLangaugeAccordionOpen((prev) => !prev)}
+                >
+                  English{" "}
+                  <MdOutlineKeyboardArrowDown
+                    className={cn(
+                      "transition-transform",
+                      isLangaugeAccordionOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isLangaugeAccordionOpen && (
+                  <ul className="w-full divide-y text-sm text-right">
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      French
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      Italian
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      German
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      Spanish
+                    </li>
+                  </ul>
+                )}
               </li>
               <li>
-                <div>
-                  <button className="block w-full py-3 text-sm hover:text-primary transition-colors text-right">
-                    USD
-                  </button>
-                  {isCurrencyAccordionOpen && (
-                    <ul>
-                      <li>USD</li>
-                      <li>CAD</li>
-                      <li>AUD</li>
-                      <li>EUR</li>
-                    </ul>
-                  )}
-                </div>
+                <button
+                  className="flex w-full justify-end items-center gap-x-1 focus:outline-none py-3 text-sm hover:text-primary text-right"
+                  onClick={() => setisCurrencyAccordionOpen((prev) => !prev)}
+                >
+                  USD{" "}
+                  <MdOutlineKeyboardArrowDown
+                    className={cn(
+                      "transition-transform",
+                      isCurrencyAccordionOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isCurrencyAccordionOpen && (
+                  <ul className="w-full divide-y text-sm text-right">
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      USD
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      CAD
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      AUD
+                    </li>
+                    <li className="block w-full py-3 hover:text-primary transition-colors">
+                      EUR
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <button
+                  className="flex w-full justify-end items-center gap-x-1 focus:outline-none py-3 text-sm hover:text-primary text-right"
+                  onClick={() => setIsAccountAccordionOpen((prev) => !prev)}
+                >
+                  My Account{" "}
+                  <MdOutlineKeyboardArrowDown
+                    className={cn(
+                      "transition-transform",
+                      isAccountAccordionOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {isAccountAccordionOpen && (
+                  <ul className="w-full divide-y text-sm text-right">
+                    <li className="w-full py-3 hover:text-primary transition-colors">
+                      <a
+                        href="#"
+                        className="flex justify-end items-center gap-x-1 w-full"
+                      >
+                        <MdLogin /> Login
+                      </a>
+                    </li>
+                    <li className="w-full py-3 hover:text-primary transition-colors">
+                      <a
+                        href="#"
+                        className="flex justify-end items-center gap-x-1 w-full"
+                      >
+                        <IoMdPersonAdd /> Register
+                      </a>
+                    </li>
+                  </ul>
+                )}
               </li>
               {["HOME", "SHOP", "PROMOTION", "PAGES", "BLOG", "CONTACT"].map(
                 (item) => (
