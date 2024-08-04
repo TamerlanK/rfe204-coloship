@@ -10,10 +10,10 @@ import { IoMdPersonAdd } from "react-icons/io"
 import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { cn } from "../../../lib/utils"
 import Container from "../../Container"
+import { Link } from "react-router-dom"
 
 const HeaderMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   const [isCurrencyAccordionOpen, setisCurrencyAccordionOpen] = useState(false)
   const [isLangaugeAccordionOpen, setisLangaugeAccordionOpen] = useState(false)
   const [isAccountAccordionOpen, setIsAccountAccordionOpen] = useState(false)
@@ -24,31 +24,43 @@ const HeaderMain = () => {
     <div className="bg-white w-full h-20 md:h-24">
       <Container className="h-full">
         <div className="w-full flex justify-between items-center h-full">
-          <a href="#" className="text-2xl text-ntrl font-bold focus:outline-none">
+          <Link
+            to="/"
+            className="text-2xl text-ntrl font-bold focus:outline-none"
+          >
             COLO<span className="text-primary">SHOP</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="flex justify-between items-center gap-x-4 lg:gap-x-12">
             <nav className="hidden md:flex items-center gap-x-4 text-sm">
-              <a href="#" className="hover:text-primary transition-colors">
+              <Link to="/" className="hover:text-primary transition-colors">
                 HOME
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              </Link>
+              <Link to="/shop" className="hover:text-primary transition-colors">
                 SHOP
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              </Link>
+              <Link
+                to="/promotion"
+                className="hover:text-primary transition-colors"
+              >
                 PROMOTION
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              </Link>
+              <Link
+                to="/pages"
+                className="hover:text-primary transition-colors"
+              >
                 PAGES
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              </Link>
+              <Link to="/blog" className="hover:text-primary transition-colors">
                 BLOG
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                CONTACT
-              </a>
+              </Link>
+              <Link
+                to="/add-product"
+                className="hover:text-primary transition-colors"
+              >
+                ADD PRODUCT
+              </Link>
             </nav>
             <div className="flex justify-center items-center gap-x-3">
               <button className="p-3 rounded-full hover:text-ntrl-clr400 transition-colors">
@@ -96,16 +108,16 @@ const HeaderMain = () => {
                 {isLangaugeAccordionOpen && (
                   <ul className="w-full divide-y text-sm text-right">
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      French
+                      <Link to="/french">French</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      Italian
+                      <Link to="/italian">Italian</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      German
+                      <Link to="/german">German</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      Spanish
+                      <Link to="/spanish">Spanish</Link>
                     </li>
                   </ul>
                 )}
@@ -126,16 +138,16 @@ const HeaderMain = () => {
                 {isCurrencyAccordionOpen && (
                   <ul className="w-full divide-y text-sm text-right">
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      USD
+                      <Link to="/usd">USD</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      CAD
+                      <Link to="/cad">CAD</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      AUD
+                      <Link to="/aud">AUD</Link>
                     </li>
                     <li className="block w-full py-3 hover:text-primary transition-colors">
-                      EUR
+                      <Link to="/eur">EUR</Link>
                     </li>
                   </ul>
                 )}
@@ -156,36 +168,41 @@ const HeaderMain = () => {
                 {isAccountAccordionOpen && (
                   <ul className="w-full divide-y text-sm text-right">
                     <li className="w-full py-3 hover:text-primary transition-colors">
-                      <a
-                        href="#"
+                      <Link
+                        to="/login"
                         className="flex justify-end items-center gap-x-1 w-full"
                       >
                         <MdLogin /> Login
-                      </a>
+                      </Link>
                     </li>
                     <li className="w-full py-3 hover:text-primary transition-colors">
-                      <a
-                        href="#"
+                      <Link
+                        to="/register"
                         className="flex justify-end items-center gap-x-1 w-full"
                       >
                         <IoMdPersonAdd /> Register
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 )}
               </li>
-              {["HOME", "SHOP", "PROMOTION", "PAGES", "BLOG", "CONTACT"].map(
-                (item) => (
-                  <li key={item} className="w-full">
-                    <a
-                      href="#"
-                      className="block w-full py-3 text-sm hover:text-primary transition-colors text-right"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                "HOME",
+                "SHOP",
+                "PROMOTION",
+                "PAGES",
+                "BLOG",
+                "ADD PRODUCT",
+              ].map((item) => (
+                <li key={item} className="w-full">
+                  <Link
+                    to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="block w-full py-3 text-sm hover:text-primary transition-colors text-right"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

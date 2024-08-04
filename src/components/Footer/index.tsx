@@ -27,7 +27,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="#" className="p-2 hover:text-primary transition-colors">
-                Contact us
+                Add product
               </a>
             </li>
           </ul>
@@ -50,8 +50,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="py-12 text-ntrl-clr500 text-sm w-full text-balance">
-          ©{new Date().getFullYear()} All Rights Reserverd. This template is
+        <div className="py-12 text-ntrl-clr500 text-center md:text-left text-sm w-full text-balance">
+          ©{new Date().getFullYear()} All Rights Reserved. This template is
           made with <FaHeart className="text-primary inline" /> by{" "}
           <span className="text-primary">Colorlib</span>
         </div>

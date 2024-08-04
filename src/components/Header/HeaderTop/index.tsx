@@ -3,6 +3,7 @@ import Container from "../../Container"
 import { MdOutlineKeyboardArrowDown, MdLogin } from "react-icons/md"
 import { IoMdPersonAdd } from "react-icons/io"
 import { cn } from "../../../lib/utils"
+import { Link } from "react-router-dom"
 
 const HeaderTop = () => {
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false)
@@ -63,19 +64,19 @@ const HeaderTop = () => {
                 <div className="absolute top-full w-full bg-white text-ntrl shadow-lg">
                   <ul className="divide-y">
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleCurrencyChange("USD")}
                     >
                       USD
                     </li>
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleCurrencyChange("EUR")}
                     >
                       EUR
                     </li>
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleCurrencyChange("GBP")}
                     >
                       GBP
@@ -97,25 +98,25 @@ const HeaderTop = () => {
                 <div className="absolute top-full w-full bg-white text-ntrl shadow-lg text-center">
                   <ul className="divide-y">
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleLanguageChange("English")}
                     >
                       English
                     </li>
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleLanguageChange("Spanish")}
                     >
                       Spanish
                     </li>
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleLanguageChange("French")}
                     >
                       French
                     </li>
                     <li
-                      className="px-4 py-3 hover:text-primary cursor-pointer"
+                      className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
                       onClick={() => handleLanguageChange("German")}
                     >
                       German
@@ -136,11 +137,18 @@ const HeaderTop = () => {
               {isAccountOpen && (
                 <div className="absolute top-full w-full bg-white text-ntrl shadow-lg">
                   <ul className="w-full divide-y">
-                    <li className="px-4 py-3 flex justify-center items-center gap-x-1 hover:text-primary">
-                      <MdLogin /> Log In
+                    <li className="px-4 py-3 flex justify-center items-center cursor-pointer hover:text-primary transition-colors duration-300">
+                      <Link to="/login" className="flex gap-x-1 items-center">
+                        <MdLogin /> Log In
+                      </Link>
                     </li>
-                    <li className="px-4 py-3 flex justify-center items-center gap-x-1 hover:text-primary">
-                      <IoMdPersonAdd /> Register
+                    <li className="px-4 py-3 flex justify-center items-center cursor-pointer hover:text-primary transition-colors duration-300">
+                      <Link
+                        to="/register"
+                        className="flex gap-x-1 items-center"
+                      >
+                        <IoMdPersonAdd /> Register
+                      </Link>
                     </li>
                   </ul>
                 </div>
