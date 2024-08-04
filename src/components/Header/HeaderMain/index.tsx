@@ -24,12 +24,12 @@ const HeaderMain = () => {
     <div className="bg-white w-full h-20 md:h-24">
       <Container className="h-full">
         <div className="w-full flex justify-between items-center h-full">
-          <a href="#" className="text-2xl text-ntrl font-bold">
+          <a href="#" className="text-2xl text-ntrl font-bold focus:outline-none">
             COLO<span className="text-primary">SHOP</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="flex justify-between items-center gap-x-4 md:gap-x-12">
+          <div className="flex justify-between items-center gap-x-4 lg:gap-x-12">
             <nav className="hidden md:flex items-center gap-x-4 text-sm">
               <a href="#" className="hover:text-primary transition-colors">
                 HOME

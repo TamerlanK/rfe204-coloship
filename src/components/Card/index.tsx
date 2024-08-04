@@ -45,7 +45,7 @@ const Card = ({ product }: CardProps) => {
               <span>${discountedPrice.toFixed(2)}</span>
             </div>
           ) : (
-            <div className="text-primary font-bold mb-4">{`$${product.price}`}</div>
+            <div className="text-primary font-bold">{`$${product.price}`}</div>
           )}
         </div>
       </div>
