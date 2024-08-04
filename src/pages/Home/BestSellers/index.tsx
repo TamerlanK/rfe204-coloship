@@ -27,7 +27,7 @@ const BestSellers = () => {
 
   return (
     <Container>
-      <div className="w-full py-12 md:py-20 space-y-12">
+      <section className="w-full py-12 md:py-20 space-y-12">
         <HeadText>Best Sellers</HeadText>
         <div className="relative group">
           <button
@@ -56,7 +56,7 @@ const BestSellers = () => {
             <FaChevronRight />
           </button>
         </div>
-      </div>
+      </section>
     </Container>
   )
 }
