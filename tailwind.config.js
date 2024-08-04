@@ -11,7 +11,7 @@ export default {
         },
         ntrl: {
           DEFAULT: "#1e1e27",
-          clr600: "##282828",
+          clr600: "#282828",
           clr500: "#51545f",
           clr400: "#b5aec4",
           clr300: "#eceff6",
