@@ -38,8 +38,8 @@ const Card = ({ product }: CardProps) => {
             {product.title}
           </h3>
           {product.discount > 0 ? (
-            <div className="text-primary font-bold mb-4">
-              <span className="line-through text-gray-500 text-sm mr-1">
+            <div className="text-primary font-bold">
+              <span className="line-through text-ntrl-clr400 text-sm mr-1">
                 ${product.price}
               </span>{" "}
               <span>${discountedPrice.toFixed(2)}</span>

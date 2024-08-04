@@ -10,15 +10,13 @@ const categories = ["ALL", "WOMEN'S", "ACCESSORIES", "MEN'S"]
 const NewArrivals: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("ALL")
 
-  const { data: products, error, isLoading, isError } = useGetProductsQuery()
+  const { data: products, error, isError } = useGetProductsQuery()
 
   console.log(products)
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
   }
-
-  if (isLoading) return <p className="text-center text-gray-600">Loading...</p>
 
   if (isError) {
     let errorMessage: string
