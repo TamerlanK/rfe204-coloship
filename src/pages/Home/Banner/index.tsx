@@ -27,7 +27,7 @@ const banners = [
 const Banner = () => {
   return (
     <Container>
-      <section className="w-full flex flex-wrap gap-4 py-12 md:p-8">
+      <section className="w-full flex flex-wrap gap-4 py-12 md:py-8">
         {banners.map((banner, index) => (
           <article key={index} className="relative flex-1 min-w-[250px]">
             <figure>
