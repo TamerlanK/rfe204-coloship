@@ -49,7 +49,7 @@ const Card = ({ product }: CardProps) => {
           )}
         </div>
       </div>
-      <button className="w-full text-center py-3 text-white bg-primary hover:bg-primary-dark mt-auto lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <button className="w-full text-center py-3 text-white bg-primary hover:bg-primary-dark mt-auto lg:opacity-0 group-hover:opacity-100 transition-all duration-300">
         ADD TO CART
       </button>
     </div>
