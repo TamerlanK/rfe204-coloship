@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Button from "../../components/UI/Button"
 
 const NotFoundPage = () => {
   return (
@@ -13,17 +14,11 @@ const NotFoundPage = () => {
           the homepage.
         </p>
         <div className="flex flex-col md:flex-row md:justify-center space-y-4 md:space-y-0 md:space-x-4">
-          <Link
-            to="/"
-            className="bg-primary text-white py-2 px-4 rounded-md shadow-md hover:bg-primary-dark transition duration-300"
-          >
-            Go to Homepage
+          <Link to="/">
+            <Button variant="primary">Go to Homepage</Button>
           </Link>
-          <Link
-            to="/contact"
-            className="bg-gray-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-gray-600 transition duration-300"
-          >
-            Contact Us
+          <Link to="/contact">
+            <Button variant="secondary">Contact Us</Button>
           </Link>
         </div>
       </div>

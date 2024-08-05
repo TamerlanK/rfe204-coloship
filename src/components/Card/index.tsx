@@ -1,14 +1,25 @@
 import { Product } from "../../types"
 import { FaHeart } from "react-icons/fa"
 import Button from "../UI/Button"
+import { useAppDispatch, useAppSelector } from "../../lib/hooks"
+import { addToCart } from "../../features/cart/cartSlice"
 
 interface CardProps {
   product: Product
 }
 
 const Card = ({ product }: CardProps) => {
+  const dispatch = useAppDispatch()
+  const cartItems = useAppSelector((state) => state.cart.items)
+
   const discountedPrice =
     product.price - (product.price * product.discount) / 100
+
+  const isInCart = cartItems.some((item) => item.id === product.id)
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product))
+  }
 
   return (
     <div className="flex flex-col h-full cursor-pointer group hover:shadow-2xl transition-shadow duration-300">
@@ -50,8 +61,11 @@ const Card = ({ product }: CardProps) => {
           )}
         </div>
       </div>
-      <Button className="rounded-none mt-auto lg:opacity-0 group-hover:opacity-100">
-        ADD TO CART
+      <Button
+        className="rounded-none mt-auto lg:opacity-0 group-hover:opacity-100"
+        onClick={handleAddToCart}
+      >
+        {isInCart ? "IN CART" : "ADD TO CART"}
       </Button>
     </div>
   )

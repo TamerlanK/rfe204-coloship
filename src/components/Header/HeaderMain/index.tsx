@@ -11,6 +11,8 @@ import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { cn } from "../../../lib/utils"
 import Container from "../../Container"
 import { Link } from "react-router-dom"
+import { useAppSelector } from "../../../lib/hooks"
+import Badge from "../../UI/Badge"
 
 const HeaderMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,6 +21,10 @@ const HeaderMain = () => {
   const [isAccountAccordionOpen, setIsAccountAccordionOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  const cartItemsCount = useAppSelector((state) =>
+    state.cart.items.reduce((total, item) => total + item.quantity, 0)
+  )
 
   return (
     <div className="bg-white w-full h-20 md:h-24">
@@ -69,9 +75,12 @@ const HeaderMain = () => {
               <button className="p-3 rounded-full hover:text-ntrl-clr400 transition-colors">
                 <FaUser className="size-3" />
               </button>
-              <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">
-                <FaShoppingCart className="size-3" />
-              </button>
+              <Link to="/cart" className="relative">
+                <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">
+                  <FaShoppingCart className="size-3" />
+                  {cartItemsCount > 0 && <Badge count={cartItemsCount} />}
+                </button>
+              </Link>
             </div>
             {/* Hamburger Menu */}
             <button className="md:hidden p-3" onClick={toggleMenu}>
