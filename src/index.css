@@ -23,3 +23,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+::selection {
+  @apply bg-primary-light/20 text-primary-dark/80;
+}
