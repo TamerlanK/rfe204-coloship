@@ -27,7 +27,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="#" className="p-2 hover:text-primary transition-colors">
-                Add product
+                Contact
               </a>
             </li>
           </ul>

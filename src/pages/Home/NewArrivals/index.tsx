@@ -12,8 +12,6 @@ const NewArrivals: React.FC = () => {
 
   const { data: products, error, isError } = useGetProductsQuery()
 
-  console.log(products)
-
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
   }

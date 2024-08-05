@@ -1,5 +1,6 @@
 import { Product } from "../../types"
 import { FaHeart } from "react-icons/fa"
+import Button from "../UI/Button"
 
 interface CardProps {
   product: Product
@@ -49,9 +50,9 @@ const Card = ({ product }: CardProps) => {
           )}
         </div>
       </div>
-      <button className="w-full text-center py-3 text-white bg-primary hover:bg-primary-dark mt-auto lg:opacity-0 group-hover:opacity-100 transition-all duration-300">
+      <Button className="rounded-none mt-auto lg:opacity-0 group-hover:opacity-100">
         ADD TO CART
-      </button>
+      </Button>
     </div>
   )
 }

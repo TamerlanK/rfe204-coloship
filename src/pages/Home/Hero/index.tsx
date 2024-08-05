@@ -1,4 +1,5 @@
 import Container from "../../../components/Container"
+import Button from "../../../components/UI/Button"
 
 const Hero = () => {
   return (
@@ -14,9 +15,8 @@ const Hero = () => {
           <h1 className="text-ntrl text-5xl md:text-7xl max-w-xl text-balance">
             Get up to 30% Off New Arrivals
           </h1>
-          <button className="px-8 py-3 bg-primary hover:bg-primary-dark active:scale-95 transition-all duration-300 text-white rounded-md">
-            SHOP NOW
-          </button>
+
+          <Button variant="primary">SHOP NOW</Button>
         </div>
       </Container>
     </section>
