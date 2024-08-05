@@ -135,7 +135,7 @@ const HeaderTop = () => {
                 My Account <MdOutlineKeyboardArrowDown />
               </span>
               {isAccountOpen && (
-                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg">
+                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg z-50">
                   <ul className="w-full divide-y">
                     <li className="px-4 py-3 flex justify-center items-center cursor-pointer hover:text-primary transition-colors duration-300">
                       <Link to="/login" className="flex gap-x-1 items-center">

@@ -4,14 +4,15 @@ import {
   FaSearch,
   FaShoppingCart,
   FaTimes,
-  FaUser,
+  FaUser
 } from "react-icons/fa"
+import { FiHeart } from "react-icons/fi"
 import { IoMdPersonAdd } from "react-icons/io"
 import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md"
-import { cn } from "../../../lib/utils"
-import Container from "../../Container"
 import { Link } from "react-router-dom"
 import { useAppSelector } from "../../../lib/hooks"
+import { cn } from "../../../lib/utils"
+import Container from "../../Container"
 import Badge from "../../UI/Badge"
 
 const HeaderMain = () => {
@@ -39,7 +40,7 @@ const HeaderMain = () => {
 
           {/* Desktop Navigation */}
           <div className="flex justify-between items-center gap-x-4 lg:gap-x-12">
-            <nav className="hidden md:flex items-center gap-x-4 text-sm">
+            <nav className="hidden md:flex items-center gap-x-4 text-xs md:text-sm">
               <Link to="/" className="hover:text-primary transition-colors">
                 HOME
               </Link>
@@ -78,6 +79,12 @@ const HeaderMain = () => {
               <Link to="/cart" className="relative">
                 <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">
                   <FaShoppingCart className="size-3" />
+                  {cartItemsCount > 0 && <Badge count={cartItemsCount} />}
+                </button>
+              </Link>
+              <Link to="/wishlist" className="relative">
+                <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">
+                  <FiHeart className="size-3" />
                   {cartItemsCount > 0 && <Badge count={cartItemsCount} />}
                 </button>
               </Link>
