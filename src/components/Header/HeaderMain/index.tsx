@@ -1,34 +1,34 @@
-import { useState } from "react"
+import { useState } from "react";
 import {
   FaBars,
   FaSearch,
   FaShoppingCart,
   FaTimes,
-  FaUser
-} from "react-icons/fa"
-import { FiHeart } from "react-icons/fi"
-import { IoMdPersonAdd } from "react-icons/io"
-import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md"
-import { Link } from "react-router-dom"
-import { useAppSelector } from "../../../lib/hooks"
-import { cn } from "../../../lib/utils"
-import Container from "../../Container"
-import Badge from "../../UI/Badge"
+  FaUser,
+} from "react-icons/fa";
+import { FiHeart } from "react-icons/fi";
+import { IoMdPersonAdd } from "react-icons/io";
+import { MdLogin, MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../lib/hooks";
+import { cn } from "../../../lib/utils";
+import Container from "../../Container";
+import Badge from "../../UI/Badge";
 
 const HeaderMain = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isCurrencyAccordionOpen, setisCurrencyAccordionOpen] = useState(false)
-  const [isLangaugeAccordionOpen, setisLangaugeAccordionOpen] = useState(false)
-  const [isAccountAccordionOpen, setIsAccountAccordionOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCurrencyAccordionOpen, setisCurrencyAccordionOpen] = useState(false);
+  const [isLangaugeAccordionOpen, setisLangaugeAccordionOpen] = useState(false);
+  const [isAccountAccordionOpen, setIsAccountAccordionOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const cartItemsCount = useAppSelector((state) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
-  )
+  );
 
   return (
-    <div className="bg-white w-full h-20 md:h-24">
+    <div className="bg-white w-full h-20 shadow-md md:h-24 md:bg-opacity-50 md:backdrop-blur-lg">
       <Container className="h-full">
         <div className="w-full flex justify-between items-center h-full">
           <Link
@@ -224,7 +224,7 @@ const HeaderMain = () => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default HeaderMain
+export default HeaderMain;

@@ -1,43 +1,43 @@
-import { useEffect, useState } from "react"
-import Container from "../../Container"
-import { MdOutlineKeyboardArrowDown, MdLogin } from "react-icons/md"
-import { IoMdPersonAdd } from "react-icons/io"
-import { cn } from "../../../lib/utils"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
+import Container from "../../Container";
+import { MdOutlineKeyboardArrowDown, MdLogin } from "react-icons/md";
+import { IoMdPersonAdd } from "react-icons/io";
+import { cn } from "../../../lib/utils";
+import { Link } from "react-router-dom";
 
 const HeaderTop = () => {
-  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false)
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
-  const [isAccountOpen, setIsAccountOpen] = useState(false)
+  const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
 
-  const [selectedCurrency, setSelectedCurrency] = useState("USD")
-  const [selectedLanguage, setSelectedLanguage] = useState("English")
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
 
-  const [isTop, setIsTop] = useState(true)
+  const [isTop, setIsTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 150) {
-        setIsTop(false)
+        setIsTop(false);
       } else {
-        setIsTop(true)
+        setIsTop(true);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [isTop])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isTop]);
 
   const handleCurrencyChange = (currency: string) => {
-    setSelectedCurrency(currency)
-    setIsCurrencyOpen(false)
-  }
+    setSelectedCurrency(currency);
+    setIsCurrencyOpen(false);
+  };
 
   const handleLanguageChange = (language: string) => {
-    setSelectedLanguage(language)
-    setIsLanguageOpen(false)
-  }
+    setSelectedLanguage(language);
+    setIsLanguageOpen(false);
+  };
 
   return (
     <div
@@ -158,7 +158,7 @@ const HeaderTop = () => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default HeaderTop
+export default HeaderTop;
