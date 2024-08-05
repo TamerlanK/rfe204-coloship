@@ -4,7 +4,7 @@ import Button from "../../../components/UI/Button"
 const Hero = () => {
   return (
     <section
-      className="relative h-[700px] mt-0 lg:mt-24 bg-cover bg-[60%] md:bg-center flex items-center bg-[#e3e3e3]"
+      className="relative h-[700px] bg-cover bg-[60%] md:bg-center flex items-center bg-[#e3e3e3]"
       style={{ backgroundImage: "url(src/assets/images/slider_1.jpg)" }}
     >
       <Container className="h-screen flex items-center pt-32 md:pt-0">

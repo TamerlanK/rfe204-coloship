@@ -3,7 +3,7 @@ import Button from "../../components/UI/Button"
 
 const NotFoundPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+    <div className="flex flex-col items-center justify-center py-32 bg-gray-100 p-6">
       <div className="text-center">
         <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
         <p className="text-xl text-gray-600 mb-8">

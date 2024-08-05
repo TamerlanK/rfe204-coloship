@@ -2,7 +2,7 @@ import { Product } from "../../types"
 import { FaHeart } from "react-icons/fa"
 import Button from "../UI/Button"
 import { useAppDispatch, useAppSelector } from "../../lib/hooks"
-import { addToCart } from "../../features/cart/cartSlice"
+import { addToCart } from "../../redux/features/cartSlice"
 
 interface CardProps {
   product: Product

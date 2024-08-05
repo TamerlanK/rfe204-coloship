@@ -61,7 +61,7 @@ const HeaderTop = () => {
                 {selectedCurrency} <MdOutlineKeyboardArrowDown />
               </span>
               {isCurrencyOpen && (
-                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg">
+                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg z-50">
                   <ul className="divide-y">
                     <li
                       className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"
@@ -95,7 +95,7 @@ const HeaderTop = () => {
                 {selectedLanguage} <MdOutlineKeyboardArrowDown />
               </span>
               {isLanguageOpen && (
-                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg text-center">
+                <div className="absolute top-full w-full bg-white text-ntrl shadow-lg text-center z-50">
                   <ul className="divide-y">
                     <li
                       className="px-4 py-3 cursor-pointer hover:text-primary transition-colors duration-300"

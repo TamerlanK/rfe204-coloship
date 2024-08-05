@@ -3,7 +3,7 @@ import AddProductForm from "./AddProductForm"
 
 const AddProductPage = () => {
   return (
-    <Container className="py-44">
+    <Container className="py-12">
       <AddProductForm />
     </Container>
   )
