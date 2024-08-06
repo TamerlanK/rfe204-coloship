@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import { FaHeart } from "react-icons/fa"
 import Container from "../../components/Container"
@@ -10,10 +10,6 @@ import { removeFromWishlist } from "../../redux/features/wishlistSlice"
 const WishlistPage: React.FC = () => {
   const dispatch = useAppDispatch()
   const wishlistItems = useAppSelector((state) => state.wishlist.items)
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [])
 
   const handleRemoveFromWishlist = (id: string) => {
     dispatch(removeFromWishlist(id))

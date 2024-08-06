@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import { FaShoppingCart } from "react-icons/fa"
+import { TbShoppingCartCheck } from "react-icons/tb"
 import Container from "../../components/Container"
 import Button from "../../components/UI/Button"
 import HeadText from "../../components/UI/HeadText"
@@ -10,15 +11,11 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "../../redux/features/cartSlice"
-import { TbShoppingCartCheck } from "react-icons/tb"
 
 const CartPage: React.FC = () => {
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector((state) => state.cart.items)
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [])
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
