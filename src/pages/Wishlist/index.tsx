@@ -1,11 +1,10 @@
 import React from "react"
-import { AiOutlineDelete } from "react-icons/ai"
 import { FaHeart } from "react-icons/fa"
 import Container from "../../components/Container"
-import Button from "../../components/UI/Button"
 import HeadText from "../../components/UI/HeadText"
 import { useAppDispatch, useAppSelector } from "../../lib/hooks"
 import { removeFromWishlist } from "../../redux/features/wishlistSlice"
+import WishlistItem from "./WishlistItem"
 
 const WishlistPage: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -34,32 +33,11 @@ const WishlistPage: React.FC = () => {
             <div className="mt-12 flex flex-col">
               <ul className="space-y-4">
                 {wishlistItems.map((item) => (
-                  <li
+                  <WishlistItem
                     key={item.id}
-                    className="flex flex-col md:flex-row justify-between items-center p-4 border border-gray-200 rounded-lg shadow-sm"
-                  >
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-24 h-24 object-contain"
-                      />
-                      <div>
-                        <h3 className="font-bold text-ntrl text-xl">
-                          {item.title}
-                        </h3>
-                        <p className="text-ntrl-clr500">${item.price}</p>
-                      </div>
-                    </div>
-                    <Button
-                      size="small"
-                      onClick={() => handleRemoveFromWishlist(item.id)}
-                      className="flex items-center gap-2 w-full md:w-fit mt-4 md:mt-0"
-                    >
-                      <AiOutlineDelete />
-                      Remove
-                    </Button>
-                  </li>
+                    item={item}
+                    onRemove={() => handleRemoveFromWishlist(item.id)}
+                  />
                 ))}
               </ul>
             </div>
