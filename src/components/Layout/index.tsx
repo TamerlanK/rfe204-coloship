@@ -4,9 +4,9 @@ import Footer from "../Footer"
 
 const RootLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col antialiased">
+    <div className="flex flex-col antialiased">
       <Header />
-      <main className="grow flex-1">
+      <main className="grow">
         <Outlet />
       </main>
       <Footer />
