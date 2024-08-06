@@ -1,5 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { persistStore, persistReducer } from "redux-persist"
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { productApi } from "../api/productApi"
 
@@ -29,7 +38,11 @@ export const store = configureStore({
     wishlist: persistedWishlistReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(productApi.middleware),
 })
 
 export const persistor = persistStore(store)

@@ -70,7 +70,7 @@ const CartPage: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-x-4 w-full md:w-fit justify-around mt-4 gap-y-4">
+                    <div className="flex items-center gap-x-4 w-full md:w-fit justify-center mt-4 gap-y-4">
                       <div className="flex items-center w-24 justify-between">
                         <button
                           className="size-8 bg-ntrl text-white rounded-md"
