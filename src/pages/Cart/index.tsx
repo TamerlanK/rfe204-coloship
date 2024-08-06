@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import { FaShoppingCart } from "react-icons/fa"
 import Container from "../../components/Container"
@@ -15,6 +15,10 @@ import { TbShoppingCartCheck } from "react-icons/tb"
 const CartPage: React.FC = () => {
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector((state) => state.cart.items)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [])
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -34,7 +38,7 @@ const CartPage: React.FC = () => {
   }
 
   return (
-    <div className="flex justify-center items-center max-sm:h-screen">
+    <div className="flex justify-center max-sm:min-h-screen">
       <Container>
         {cartItems.length === 0 ? (
           <div className="text-center md:py-32">
@@ -69,7 +73,7 @@ const CartPage: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-x-4 flex-col md:flex-row mt-4 gap-y-4">
+                    <div className="flex items-center gap-x-4 w-full md:w-fit justify-around mt-4 gap-y-4">
                       <div className="flex items-center w-24 justify-between">
                         <button
                           className="size-8 bg-ntrl text-white rounded-md"
@@ -100,9 +104,12 @@ const CartPage: React.FC = () => {
               <div className="py-4">
                 <ul className="space-y-1">
                   {cartItems.map((item) => (
-                    <li key={item.id} className="text-ntrl-clr500 text-right flex justify-between items-center">
-                      <p>{item.title}</p>
-                      <p>
+                    <li
+                      key={item.id}
+                      className="text-ntrl-clr500 text-right flex justify-between items-center"
+                    >
+                      <p className="text-xs md:text-sm">{item.title}</p>
+                      <p className="text-xs md:text-sm">
                         ${item.price} x {item.quantity} = $
                         {(item.price * item.quantity).toFixed(2)}
                       </p>

@@ -6,7 +6,7 @@ const RootLayout = () => {
   return (
     <div className="flex flex-col antialiased">
       <Header />
-      <main className="grow">
+      <main className="grow flex-1">
         <Outlet />
       </main>
       <Footer />

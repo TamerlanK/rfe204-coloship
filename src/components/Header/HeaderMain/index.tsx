@@ -27,6 +27,8 @@ const HeaderMain = () => {
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
 
+  const wishlistItemsCount = useAppSelector(state => state.wishlist.items.length)
+
   return (
     <div className="bg-white w-full h-20 shadow-md md:h-24 md:bg-opacity-50 md:backdrop-blur-lg">
       <Container className="h-full">
@@ -85,7 +87,7 @@ const HeaderMain = () => {
               <Link to="/wishlist" className="relative">
                 <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">
                   <FiHeart className="size-3" />
-                  {cartItemsCount > 0 && <Badge count={cartItemsCount} />}
+                  {wishlistItemsCount > 0 && <Badge count={wishlistItemsCount} />}
                 </button>
               </Link>
             </div>

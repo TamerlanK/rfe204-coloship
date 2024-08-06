@@ -3,6 +3,11 @@ import { FaHeart } from "react-icons/fa"
 import Button from "../UI/Button"
 import { useAppDispatch, useAppSelector } from "../../lib/hooks"
 import { addToCart } from "../../redux/features/cartSlice"
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../redux/features/wishlistSlice"
+import { cn } from "../../lib/utils"
 
 interface CardProps {
   product: Product
@@ -11,14 +16,24 @@ interface CardProps {
 const Card = ({ product }: CardProps) => {
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector((state) => state.cart.items)
+  const wishlistItems = useAppSelector((state) => state.wishlist.items)
 
   const discountedPrice =
     product.price - (product.price * product.discount) / 100
 
   const isInCart = cartItems.some((item) => item.id === product.id)
+  const isInWishlist = wishlistItems.some((item) => item.id === product.id)
 
   const handleAddToCart = () => {
     dispatch(addToCart(product))
+  }
+
+  const handleToggleWishlist = () => {
+    if (isInWishlist) {
+      dispatch(removeFromWishlist(product.id))
+    } else {
+      dispatch(addToWishlist(product))
+    }
   }
 
   return (
@@ -42,7 +57,13 @@ const Card = ({ product }: CardProps) => {
               <span className="absolute bottom-0 right-0 mr-1 -mb-2 w-0 h-0 border-l-8 border-l-transparent border-t-8 border-t-primary"></span>
             </span>
           )}
-          <FaHeart className="group-hover:opacity-100 opacity-0 absolute top-2 right-2 text-gray-300 hover:text-primary transition-all duration-300" />
+          <FaHeart
+            className={cn(
+              "group-hover:opacity-100 opacity-0 absolute top-2 right-2 text-gray-300 hover:text-primary-light transition-all duration-200",
+              isInWishlist && "opacity-100 text-primary-dark hover:text-primary-dark"
+            )}
+            onClick={handleToggleWishlist}
+          />
         </div>
 
         <div className="p-4 text-center flex-grow flex flex-col justify-between">
