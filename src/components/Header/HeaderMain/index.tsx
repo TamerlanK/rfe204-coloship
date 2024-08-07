@@ -3,8 +3,7 @@ import {
   FaBars,
   FaSearch,
   FaShoppingCart,
-  FaTimes,
-  FaUser,
+  FaTimes
 } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { IoMdPersonAdd } from "react-icons/io";
@@ -74,9 +73,6 @@ const HeaderMain = () => {
             <div className="flex justify-center items-center gap-x-3">
               <button className="p-3 rounded-full hover:text-ntrl-clr400 transition-colors">
                 <FaSearch className="size-3" />
-              </button>
-              <button className="p-3 rounded-full hover:text-ntrl-clr400 transition-colors">
-                <FaUser className="size-3" />
               </button>
               <Link to="/cart" className="relative">
                 <button className="p-3 rounded-full hover:text-ntrl-clr400 bg-ntrl-clr300 transition-colors">

@@ -8,6 +8,8 @@ import {
   WishlistItem as WishlistItemType,
 } from "../../redux/features/wishlistSlice"
 import WishlistItem from "./WishlistItem"
+import { Product } from "../../types"
+import { addToCart } from "../../redux/features/cartSlice"
 
 const WishlistPage = () => {
   const dispatch = useAppDispatch()
@@ -18,6 +20,13 @@ const WishlistPage = () => {
   const handleRemoveFromWishlist = useCallback(
     (id: string) => {
       dispatch(removeFromWishlist(id))
+    },
+    [dispatch]
+  )
+
+  const handleAddToCart = useCallback(
+    (product: Product) => {
+      dispatch(addToCart(product))
     },
     [dispatch]
   )
@@ -42,6 +51,7 @@ const WishlistPage = () => {
               key={item.id}
               item={item}
               onRemove={() => handleRemoveFromWishlist(item.id)}
+              onAddToCart={() => handleAddToCart(item)}
             />
           ))}
         </ul>

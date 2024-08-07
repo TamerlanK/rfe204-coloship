@@ -5,9 +5,10 @@ import { WishlistItem as WishlistItemType } from "../../../redux/features/wishli
 interface WishlistItemProps {
   item: WishlistItemType
   onRemove: () => void
+  onAddToCart: () => void
 }
 
-const WishlistItem = ({item, onRemove}: WishlistItemProps) => {
+const WishlistItem = ({ item, onRemove, onAddToCart }: WishlistItemProps) => {
   return (
     <li
       key={item.id}
@@ -24,14 +25,24 @@ const WishlistItem = ({item, onRemove}: WishlistItemProps) => {
           <p className="text-ntrl-clr500">${item.price}</p>
         </div>
       </div>
-      <Button
-        size="small"
-        onClick={onRemove}
-        className="flex items-center gap-2 w-full md:w-fit mt-4 md:mt-0"
-      >
-        <AiOutlineDelete />
-        Remove
-      </Button>
+      <div className="flex items-center gap-x-2 mt-4 max-sm:self-end">
+        <Button
+          size="small"
+          onClick={onAddToCart}
+          variant="secondary"
+          className="w-full"
+        >
+          Add to cart
+        </Button>
+        <Button
+          size="small"
+          onClick={onRemove}
+          className="flex items-center gap-2 w-full md:w-fit"
+        >
+          <AiOutlineDelete />
+          Remove
+        </Button>
+      </div>
     </li>
   )
 }
