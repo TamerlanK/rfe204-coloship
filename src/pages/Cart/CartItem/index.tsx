@@ -16,7 +16,7 @@ const CartItem = ({
   onRemove,
 }: CartItemProps) => {
   return (
-    <li className="flex flex-col md:flex-row justify-between items-center p-4 border border-gray-200 rounded-lg shadow-sm">
+    <li className="flex flex-col md:flex-row justify-between items-start md:items-center p-4 border border-gray-200 rounded-lg shadow-sm">
       <div className="flex items-center gap-4">
         <img
           src={item.image}
@@ -30,7 +30,7 @@ const CartItem = ({
           </p>
         </div>
       </div>
-      <div className="flex items-center gap-x-4 w-full md:w-fit justify-center mt-4 gap-y-4">
+      <div className="flex items-center gap-x-4 w-full md:w-fit justify-end mt-4 gap-y-4">
         <div className="flex items-center w-24 justify-between">
           <button
             className="size-8 bg-ntrl text-white rounded-md"

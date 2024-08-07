@@ -12,7 +12,7 @@ const WishlistItem = ({ item, onRemove, onAddToCart }: WishlistItemProps) => {
   return (
     <li
       key={item.id}
-      className="flex flex-col md:flex-row justify-between items-center p-4 border border-gray-200 rounded-lg shadow-sm"
+      className="flex flex-col md:flex-row justify-between items-start md:items-center p-4 border border-gray-200 rounded-lg shadow-sm"
     >
       <div className="flex items-center gap-4">
         <img
@@ -25,19 +25,19 @@ const WishlistItem = ({ item, onRemove, onAddToCart }: WishlistItemProps) => {
           <p className="text-ntrl-clr500">${item.price}</p>
         </div>
       </div>
-      <div className="flex items-center gap-x-2 mt-4 max-sm:self-end">
+      <div className="flex items-center gap-x-2 mt-4 justify-end w-full">
         <Button
           size="small"
           onClick={onAddToCart}
           variant="secondary"
-          className="w-full"
+
         >
           Add to cart
         </Button>
         <Button
           size="small"
           onClick={onRemove}
-          className="flex items-center gap-2 w-full md:w-fit"
+          className="flex items-center gap-2 md:w-fit"
         >
           <AiOutlineDelete />
           Remove
