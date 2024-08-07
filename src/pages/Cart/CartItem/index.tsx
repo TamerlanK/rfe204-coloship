@@ -1,4 +1,3 @@
-import React from "react"
 import { AiOutlineDelete } from "react-icons/ai"
 import Button from "../../../components/UI/Button"
 import { CartItem as CartItemType } from "../../../redux/features/cartSlice"
@@ -60,4 +59,4 @@ const CartItem = ({
   )
 }
 
-export default React.memo(CartItem)
+export default CartItem

@@ -1,34 +1,18 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { useGetProductsQuery } from "../../../api/productApi"
+import Card from "../../../components/Card"
 import Container from "../../../components/Container"
 import HeadText from "../../../components/UI/HeadText"
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query"
-import Card from "../../../components/Card"
 
 const categories = ["ALL", "WOMEN'S", "ACCESSORIES", "MEN'S"]
 
-const NewArrivals: React.FC = () => {
+const NewArrivals = () => {
   const [activeCategory, setActiveCategory] = useState<string>("ALL")
 
-  const { data: products, error, isError } = useGetProductsQuery()
+  const { data: products } = useGetProductsQuery()
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
-  }
-
-  if (isError) {
-    let errorMessage: string
-
-    if ((error as FetchBaseQueryError).status) {
-      const err = error as FetchBaseQueryError
-      errorMessage = `Error: ${err.status}`
-      if (err.data && typeof err.data === "object" && "message" in err.data) {
-        errorMessage += ` - ${(err.data as { message?: string }).message}`
-      }
-    } else {
-      const err = error as Error
-      errorMessage = `Error: ${err.message}`
-    }
   }
 
   if (!products || products.length === 0) return null
